@@ -1,0 +1,48 @@
+<html>
+
+ <!-- Marvel Logo from URL -->
+  <div class="logo-container">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg"
+      alt="Marvel Logo"
+      class="marvel-logo"
+    />
+  </div>
+
+<div class="container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="onSearchChange()"
+    placeholder="Search movies..."
+    class="search-bar"
+  />
+
+  <div *ngIf="isLoading">Loading movies...</div>
+
+  <!-- Show 'No such movies found' if not loading and filtered list empty -->
+  <div *ngIf="!isLoading && filteredMovies.length === 0 && searchTerm.trim() !== ''">
+  No such movies found.
+</div>
+
+
+  <div class="movie-grid" *ngIf="!isLoading && filteredMovies.length > 0">
+    <div
+      class="movie-card"
+      *ngFor="let movie of filteredMovies"
+      (click)="selectMovie(movie)"
+      tabindex="0"
+      role="button"
+      [attr.aria-label]="'View details for ' + movie.title"
+      (keyup.enter)="selectMovie(movie)"
+    >
+      <img [src]="movie.image" [alt]="movie.title" />
+      <div class="movie-info">
+        <h4>{{ movie.title }}</h4>
+        <p>{{ movie.year }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html><!-- movie-list.html -->

@@ -1,0 +1,113 @@
+.container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.logo-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.marvel-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: #242323;
+  color: white;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #191818;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.movie-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+}
+
+.movie-info {
+  padding: 5px;
+  text-align: center; /* centers all text inside */
+}
+
+.movie-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  max-width: 350px;   /* smaller width */
+  width: 90%;
+  padding: 15px;      /* less padding */
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-size: 14px;    /* smaller font */
+}
+
+.modal img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.modal p {
+  color: #333;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Close button smaller */
+.close-button {
+  top: 8px;
+  right: 10px;
+  font-size: 18px;
+}
+.marvel-header {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.marvel-header img {
+  width: 200px;
+  max-width: 90%;
+  height: auto;
+}

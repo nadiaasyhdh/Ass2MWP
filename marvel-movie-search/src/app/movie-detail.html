@@ -1,0 +1,58 @@
+<html>
+
+<div *ngIf="!isLoading && !hasError" class="details-container">
+  <img
+    class="movie-image"
+    [src]="movie.image"
+    [alt]="movie.title"
+  />
+
+  <div class="right-side">
+    <div class="movie-info">
+      <h2>{{ movie.title }} ({{ movie.year }})</h2>
+      <p><strong>Genre:</strong> {{ movie.genre }}</p>
+      <p>{{ movie.description }}</p>
+      <button routerLink="/movies" class="back-button">Back to list</button>
+    </div>
+
+    <div class="bottom-section">
+      <div class="comment-form-container">
+        <h3>Leave a Comment about this Movie (Optional)</h3>
+        <form #commentForm="ngForm" (ngSubmit)="submitComment()">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="comment.name"
+            placeholder="Your name (optional)"
+          />
+
+          <label for="text">Comment:</label>
+          <textarea
+            id="text"
+            name="text"
+            [(ngModel)]="comment.text"
+            placeholder="Your comment (optional)"
+          ></textarea>
+
+          <button type="submit" class="submit-button">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div *ngIf="comments.length > 0" class="comments-section">
+        <h4>Comments:</h4>
+        <ul>
+          <li *ngFor="let c of comments">
+            <strong>{{ c.name }}:</strong> {{ c.text }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</html>
